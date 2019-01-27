@@ -1,0 +1,64 @@
+<div class="p-grid p-dir-col m-4">
+  <div class="p-col">
+    <h1>Prime NG</h1>
+  </div>
+  <div class="p-col">
+    <p-table [value]="samples">
+      <ng-template pTemplate="header">
+        <tr>
+          <th style="width: 3em">ID</th>
+          <th>Nombre</th>
+          <th style="width: 5rem">Imagen</th>
+          <th>Nombre e imagen</th>
+          <th style="width: 10%; align-content: center">Botón</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
+        <tr>
+          <td>{{ rowData.id }} </td>
+          <td>{{ rowData.name }}</td>
+          <td><img [src]="'assets/' + rowData.image" [title]="rowData.name" [alt]="rowData.name"></td>
+          <td><img [src]="'assets/' + rowData.image" [title]="rowData.name" [alt]="rowData.name">{{ rowData.name }}</td>
+          <td>
+            <div style="text-align: center; width: 100%">
+              <button pButton
+                  class="ui-button-success"
+                  icon="fas fa-mouse-pointer"
+                  title="Do click to show a message"
+                  (click)="showMessage(rowData)"></button>
+              &nbsp;
+              <button pButton
+                  class="ui-button-danger"
+                  icon="fas fa-trash"
+                  title="Do click to delete"
+                  (click)="deleteRow(rowData)"></button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <div class="p-col">
+    <button pButton
+        class="ui-button-danger"
+        icon="fa fa-times"
+        label="Click me"
+        title="Do click to show a message"
+        (click)="showErrorMessage('Sample of a erroro message')"></button>
+  </div>
+  <div class="p-col">
+    <button pButton
+        class="ui-button-warning"
+        icon="fas fa-question"
+        label="Confirm"
+        title="Show confirm modal dialog"
+        (click)="showConfirmDialog()"></button>
+  </div>
+</div>
+<p-toast></p-toast>
+<p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
+  <p-footer>
+    <button type="button" class="ui-button-success" pButton icon="pi pi-check" label="Acept" (click)="cd.accept()"></button>
+    <button type="button" class="ui-button-danger" pButton icon="pi pi-times" label="Reject" (click)="cd.reject()"></button>
+  </p-footer>
+</p-confirmDialog>
