@@ -1,3 +1,4 @@
+<app-sample-grid></app-sample-grid>
 <div class="p-grid p-dir-col m-4">
   <div class="p-col">
     <h1>Prime NG</h1>
@@ -53,6 +54,17 @@
         label="Confirm"
         title="Show confirm modal dialog"
         (click)="showConfirmDialog()"></button>
+  </div>
+  <div class="p-col">
+    <p-progressBar [ngClass]="{'progressBarLow': value <= 25,
+        'progressBarMeddium': value > 25 && value <= 75,
+        'progressBarHard': value > 75 }" [value]="value"></p-progressBar>
+  </div>
+  <div class="p-col">
+    <button pButton
+        class="ui-button-info"
+        label="Change Progress Value"
+        (click)="changeProgressValue()"></button>
   </div>
 </div>
 <p-toast></p-toast>

@@ -39,6 +39,8 @@ export class AppComponent {
     },
   ];
 
+  public value = 20;
+
   constructor(private confirmationService: ConfirmationService,
       private messageService: MessageService) { }
 
@@ -85,5 +87,15 @@ export class AppComponent {
         console.log('Reject the confirmation');
       }
     });
+  }
+
+  public changeProgressValue() {
+    if (this.value <= 25) {
+      this.value = 50;
+    } else if (this.value <= 75) {
+      this.value = 85;
+    } else {
+      this.value = 20;
+    }
   }
 }

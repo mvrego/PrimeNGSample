@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+.progressBarLow .ui-progressbar .ui-progressbar-value {
+  background: green;
+}
+
+.progressBarMeddium .ui-progressbar .ui-progressbar-value {
+  background: yellow;
+}
+
+.progressBarHard .ui-progressbar .ui-progressbar-value {
+  background: red;
+}
+
+.box {
+  background-color: #cce4f7;
+  text-align: center;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-radius: 4px;
+  color: #333333;
+}
